@@ -1,0 +1,104 @@
+@font-face {
+	font-family: Charis;
+	font-weight: normal;
+	font-style: normal;
+	src: url('./fonts/CharisSIL-Regular.woff2');
+}
+
+@font-face {
+	font-family: Charis;
+	font-weight: normal;
+	font-style: italic;
+	src: url('./fonts/CharisSIL-Italic.woff2');
+}
+
+html {
+	background-color: ghostwhite;
+	color: #111;
+	font-size: 20px;
+	line-height: 1.5;
+	font-family: Charis;
+}
+
+h1, h2 {
+	font-variant-caps: all-small-caps;
+	letter-spacing: .175rem;
+}
+
+h1 {
+	font-size: larger;
+	line-height: 0.8;
+	text-shadow: 2px 2px gainsboro;
+}
+
+h2, h3, h4 {
+	margin: 0;
+}
+
+article header span {
+	display: block;
+	color: darkgrey;
+	font-size: .83rem;
+	font-style: italic;
+}
+
+article, body > header {
+	margin-left: 10%;
+	width: 100%;
+	max-width: 60ch;
+}
+
+article {
+	margin-top: 2lh;
+}
+
+a {
+	color: initial;
+	text-decoration-thickness: 1px;
+}
+
+a:hover {
+	color: red;
+}
+
+body > header {
+	display: flex;
+	grid-gap: 1rem;
+	align-items: center;
+	justify-content: space-between;
+}
+
+figure {
+	text-align: center;
+}
+
+figure figcaption {
+	color: darkgrey;
+	font-size: smaller;
+	margin: 1ch;
+}
+
+body > header nav ul {
+	display: flex;
+	grid-gap: 2rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	font-variant-caps: all-small-caps;
+	letter-spacing: .07rem;
+	font-size: 110%;
+	line-height: 1;
+}
+
+body > header a {
+	text-decoration: none;
+	text-shadow: 2px 2px gainsboro;
+}
+
+abbr {
+	font-variant-caps: all-small-caps;
+	letter-spacing: .07rem;
+	font-size: 110%;
+	line-height: 1;
+}
