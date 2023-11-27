@@ -6,7 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+crossbeam-channel = "0.5.8"
+file-serve = "0.3.0"
 maud = "*"
+notify-debouncer-mini = "0.4.1"
 orgize = "0.9.0"
+tap = "1.0.1"
+tungstenite = "0.20.1"
 url = "2.4.1"
 

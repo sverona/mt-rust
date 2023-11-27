@@ -1,0 +1,15 @@
+#+TITLE: Index
+
+** Servus!
+
+I'm a big dork who wrote this thing in /org-mode/ and then compiled it to a static site with a custom Rust thing I derived from someone else.
+
+*This is some bold text.*
+
+#+begin_src python :results output
+def gcd(a, b):
+	print(a, b)
+	return a if b == 0 else gcd(b, a % b)
+
+print(gcd(833, 42))
+#+end_src

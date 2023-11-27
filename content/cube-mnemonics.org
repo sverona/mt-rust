@@ -1,0 +1,33 @@
+#+title: Cube Mnemonics
+#+date: 2023-11-26
+
+I've been speedcubing since I was a kid. This means I've been staring at algorithms, in the traditional cube notation, for years and years. They look like this:
+
+#+begin_quote
+R2 F R U R U' R' F' R U2 R' U2 R
+#+end_quote
+
+With sufficient practice, this sequence of moves will make it into your muscle memory. But I find in order to be able to do this at all, I have to be able to remember the whole thing, and saying "are you are-prime you-prime," etc., doesn't stick at all.
+
+This morning a solution finally occurred to me. It's a bit silly, as mnemonics often are, but I believe (with possibly some tweaking) it works beautifully.
+
+The idea is to write R → S, U → E, R' → X, U' → Y. This has two advantages.
+
+1. The sequence R U R' U' is historically called the /[[https://www.speedsolving.com/wiki/index.php?title=Sexy_Move][sexy move]]/. It appears frequently enough that you can just say /F sexy sexy sexy F'/ and cubers will know what you mean. It consists of four moves, and its name four letters.
+2. Last-layer algorithms tend to consist of long sequences of {R, U} broken up by occasional other faces. By construction, these have to alternate between R and U. Therefore, /assigning consonant sounds to one and vowel sounds to the other creates pronounceable phrases./ What I've actually started doing is pronouncing X as K and Y as I when it makes the phrase easy to remember.
+3. It happens to make tongue-twisters, which is fun.
+
+So the algorithm from before becomes: /(R2 F) SESYX (F') SEEXEES/, which I pronounce "Artoo, sea psych, seeks zees." (Space robot is a mariner-psychiatrist and trying to sleep.) The /(R2 F)/ acts as a "trigger" sequence to signal this particular algorithm, and in particular to distinguish it from its mirror image, which uses a different algorithm. The F and F' act sort of like commas, breaking up the words. These moves tend to be part of [[https://www.speedsolving.com/wiki/index.php?title=Conjugate][conjugations]], so that takes care of remembering which way they go.
+
+Other examples:
+
+1. The longest PLL algorithm, R U R' U R U R' F' R U R' U' R' F R2 U' R' U2 R U' R', becomes /SEXESEX (F') SEXYX (F) SSYXEESYX/, which I remember as "Sex E sex, sexy X, Psyche sick."
+2. The most awkward PLL algorithm, R' U R' d' R' F' R2 U' R' U R' F R F, becomes /XEX (d' R' F') SSYXEX (F R F)/, which I remember as "kopecks, dorf prime, Saiki K, forfeit."
+3. R U' R' U' R U R D R' U' R D' R' U2 R' becomes /SYXYSES (D) XYS (D') XEEX,/ which I remember as /psych, eyes is Ky's geeks./
+
+It's true that all of S, E, X, and Y have other meanings in cube notation, but:
+
+1. I don't think I know of a single commonly used algorithm with /Standing/ or /Equatorial/ moves;
+2. X and Y rotations, while they do appear in most PLL algorithms, usually appear next to coplanar moves. For instance, X rotations always come at the start of algorithms and before R or L turns, and the only Y rotation (in the V-perm) follows a U. So they can be absorbed into fat turns, which is how I actually do the algorithms anyway.
+
+This idea is simple enough that I can't possibly have been the first person to come up with it. But I did come up with it independently, and that's cool.
