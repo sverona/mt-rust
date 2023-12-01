@@ -1,13 +1,32 @@
 use std::error::Error;
+use std::fs;
+use std::io;
 use std::path::Path;
 
+
+use clap::Parser;
 use maud::{html, Markup, DOCTYPE, PreEscaped};
 use orgize::Org;
 use url::Url;
-use std::fs;
-use std::io;
 
+// TODO Huh?
+#[cfg(feature = "watch")]
 mod watch;
+
+#[derive(Debug, Parser)]
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+}
+
+#[derive(Debug, Parser)]
+enum Commands {
+    #[clap(name = "build")]
+    Build,
+    #[cfg(feature = "watch")]
+    #[clap(name = "watch")]
+    Watch,
+}
 
 pub struct Head<'a> {
 	pub title: &'a str,
@@ -91,7 +110,7 @@ where
 
 			let new_path = to.as_ref().join(filename);
 			if new_path.exists() {
-				return Err(io::Error::other("asdf"))
+				return Err(io::Error::new(io::ErrorKind::AlreadyExists, "file exists"))
 			}
 
 			if old_path.is_dir() {
@@ -103,6 +122,12 @@ where
 		})
 }
 
-fn main() {
-	let _ = watch::watch();
+fn main() -> Result<(), Box<dyn Error>> {
+    let cli = Cli::parse();
+
+    match cli.command {
+        Commands::Build => build(),
+        #[cfg(feature = "watch")]
+        Commands::Watch => watch::watch(), 
+    }
 }

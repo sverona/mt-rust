@@ -5,13 +5,18 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["watch"]
+watch = ["notify-debouncer-mini", "tungstenite", "crossbeam-channel", "file-serve"]
+
 [dependencies]
-crossbeam-channel = "0.5.8"
-file-serve = "0.3.0"
+clap = { version = "4.4.10", features = ["derive"] }
+crossbeam-channel = { version = "0.5.8", optional = true }
+file-serve = { version = "0.3.0", optional = true }
 maud = "*"
-notify-debouncer-mini = "0.4.1"
+notify-debouncer-mini = { version = "0.4.1", optional = true }
 orgize = "0.9.0"
 tap = "1.0.1"
-tungstenite = "0.20.1"
+tungstenite = { version = "0.20.1", optional = true }
 url = "2.4.1"
 
