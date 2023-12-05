@@ -7,7 +7,7 @@ I've been speedcubing since I was a kid. This means I've been staring at algorit
 R2 F R U R U' R' F' R U2 R' U2 R
 #+end_quote
 
-With sufficient practice, this sequence of moves will make it into your muscle memory. But I find in order to be able to do this at all, I have to be able to remember the whole thing, and saying "are you are-prime you-prime," etc., doesn't stick at all.
+With sufficient practice, this sequence of moves will make it into your muscle memory. But I find in order to be able to do this at all, I have to be able to remember the whole thing, and saying "are you are-prime you-prime," etc., doesn't stick at all. Also, algorithm amnesia is a thing, often upon switching to a new cube.
 
 This morning a solution finally occurred to me. It's a bit silly, as mnemonics often are, but I believe (with possibly some tweaking) it works beautifully.
 
@@ -23,7 +23,7 @@ Other examples:
 
 1. The longest PLL algorithm, R U R' U R U R' F' R U R' U' R' F R2 U' R' U2 R U' R', becomes /SEXESEX (F') SEXYX (F) SSYXEESYX/, which I remember as "Sex E sex, sexy X, Psyche sick."
 2. The most awkward PLL algorithm, R' U R' d' R' F' R2 U' R' U R' F R F, becomes /XEX (d' R' F') SSYXEX (F R F)/, which I remember as "kopecks, dorf prime, Saiki K, forfeit."
-3. R U' R' U' R U R D R' U' R D' R' U2 R' becomes /SYXYSES (D) XYS (D') XEEX,/ which I remember as /psych, eyes is Ky's geeks./
+3. R U' R' U' R U R D R' U' R D' R' U2 R' becomes /SYXYSES (D) XYS (D') XEEX,/ which I remember as "psych, eyes is Ky's geeks."
 
 It's true that all of S, E, X, and Y have other meanings in cube notation, but:
 

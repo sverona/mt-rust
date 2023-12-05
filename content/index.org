@@ -6,6 +6,8 @@ I'm a big dork who wrote this thing in /org-mode/ and then compiled it to a stat
 
 *This is some bold text.*
 
+This text has a footnote.[fn::Here it is! *Here's bold footnote!*]
+
 #+begin_src python :results output
 def gcd(a, b):
 	print(a, b)

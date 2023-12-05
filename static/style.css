@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+
 @charset "UTF-8";
 
 /* Import ET Book styles
@@ -13,7 +15,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
-    font-family: ETBembo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: Baskervville, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     background-color: #fffff8;
     color: #111;
     max-width: 1400px;
@@ -265,8 +267,7 @@ img {
 
 .sidenote-number:after {
     content: counter(sidenote-counter);
-    font-size: 100 11212  100 11212    0     0  47861      0 --:--:-- --:--:-- --:--:-- 48120
-1rem;
+    font-size: 1rem;
     top: -0.5rem;
     left: 0.1rem;
 }

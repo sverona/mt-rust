@@ -1,4 +1,4 @@
-use notify_debouncer_mini::{new_debouncer, DebounceEventResult, notify::RecursiveMode};
+use notify_debouncer_mini::{new_debouncer, notify::RecursiveMode, DebounceEventResult};
 
 use std::error::Error;
 use std::io;
@@ -19,8 +19,7 @@ pub fn watch() -> Result<(), Box<dyn Error>> {
     // Figure out what port we're on.
     let websocket_port = websocket_server.local_addr()?.port();
 
-    // crate::build(Some(websocket_port))?;
-    crate::build()?;
+    crate::build(Some(websocket_port))?;
 
     // https://docs.rs/crossbeam-channel/latest/crossbeam_channel/
     // TODO Try to replace this with stdlib std::sync::mpsc for fun!
@@ -37,42 +36,43 @@ pub fn watch() -> Result<(), Box<dyn Error>> {
     // https://doc.rust-lang.org/std/thread/fn.spawn.html
     // TODO move??
     let build_thread = thread::spawn(move || {
-        notify_rx.iter()
-                 .filter_map(|rx| {
-                     match rx {
-                         Ok(_) => Some(()),
-                         Err(e) => { eprintln!("Error: {:?}", e); None },
-                     }
-                 })
-                 .map(|_| {
-                     // Run the command `cargo run build --websocket-port PORT`.
-                     Command::new("cargo")
-                         .arg("run")
-                         .arg("build")
-                         .args(["--websocket-port", &websocket_port.to_string()])
-                         .stdout(Stdio::inherit())
-                         .stderr(Stdio::inherit())
-                         .spawn()
-                         .expect("cargo failed to start")
-                         .wait()
-                         .expect("cargo error")
-                 })
-                 // Log nonzero exit statuses.
-                 .try_for_each(|exit_status| {
-                        if exit_status.success() {
-                            build_tx.send(())
-                        } else {
-                            eprintln!("Error: Got status {:?}", exit_status);
-                            Ok(())
-                        }
-                 })
-
-
-        });
+        notify_rx
+            .iter()
+            .filter_map(|rx| match rx {
+                Ok(_) => Some(()),
+                Err(e) => {
+                    eprintln!("Error: {:?}", e);
+                    None
+                }
+            })
+            .map(|_| {
+                // Run the command `cargo run build --websocket-port PORT`.
+                Command::new("cargo")
+                    .arg("run")
+                    .arg("build")
+                    .args(["--websocket-port", &websocket_port.to_string()])
+                    .stdout(Stdio::inherit())
+                    .stderr(Stdio::inherit())
+                    .spawn()
+                    .expect("cargo failed to start")
+                    .wait()
+                    .expect("cargo error")
+            })
+            // Log nonzero exit statuses.
+            .try_for_each(|exit_status| {
+                if exit_status.success() {
+                    build_tx.send(())
+                } else {
+                    eprintln!("Error: Got status {:?}", exit_status);
+                    Ok(())
+                }
+            })
+    });
 
     // https://docs.rs/tungstenite/latest/tungstenite/
     // TODO What is all this doing???
-    let sockets: Arc<Mutex<Vec<tungstenite::WebSocket<TcpStream>>>> = Arc::new(Mutex::new(Vec::new()));
+    let sockets: Arc<Mutex<Vec<tungstenite::WebSocket<TcpStream>>>> =
+        Arc::new(Mutex::new(Vec::new()));
     let sockets_clone = sockets.clone();
 
     let websocket_thread = thread::spawn(move || {
@@ -84,38 +84,42 @@ pub fn watch() -> Result<(), Box<dyn Error>> {
     });
 
     let reload_thread = thread::spawn(move || {
-        build_rx.iter()
-                .for_each(|_| {
-                    let mut sockets = sockets_clone.lock().unwrap();
+        build_rx.iter().for_each(|_| {
+            let mut sockets = sockets_clone.lock().unwrap();
 
-                    // TODO Make this stateless
-                    let mut broken = vec![];
+            // TODO Make this stateless
+            let mut broken = vec![];
 
-                    sockets.iter_mut()
-                        .enumerate()
-                        .for_each(|(index, socket)| {
-                            socket.send("reload".into())
-                                .err()
-                                .map(|err| {
-                                    match err {
-                                        tungstenite::error::Error::Io(e) => {
-                                            if e.kind() == io::ErrorKind::BrokenPipe {
-                                                broken.push(index);
-                                            }
-                                        },
-                                        e => { eprintln!("Error: {:?}", e); }
-                                    };
-                                });
-                        });
+            sockets.iter_mut().enumerate().for_each(|(index, socket)| {
+                if let Some(err) = socket.send("reload".into()).err() {
+                    match err {
+                        tungstenite::error::Error::Io(e) => {
+                            if e.kind() == io::ErrorKind::BrokenPipe {
+                                broken.push(index);
+                            }
+                        }
+                        e => {
+                            eprintln!("Error: {:?}", e);
+                        }
+                    };
+                };
+            });
 
-                    broken.into_iter().rev().for_each(|index| {
-                        sockets.remove(index);
-                    });
-                })
-
+            broken.into_iter().rev().for_each(|index| {
+                sockets.remove(index);
+            });
+        })
     });
 
-    debouncer.watcher().watch(Path::new("./content"), RecursiveMode::Recursive)?;
+    debouncer
+        .watcher()
+        .watch(Path::new("./content"), RecursiveMode::Recursive)?;
+    debouncer
+        .watcher()
+        .watch(Path::new("./static"), RecursiveMode::Recursive)?;
+    debouncer
+        .watcher()
+        .watch(Path::new("./src"), RecursiveMode::Recursive)?;
 
     let dist = std::env::current_dir()?.join("dist");
     let server = file_serve::ServerBuilder::new(dist)
