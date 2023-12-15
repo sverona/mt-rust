@@ -7,17 +7,17 @@ I've been speedcubing since I was a kid. This means I've been staring at algorit
 R2 F R U R U' R' F' R U2 R' U2 R
 #+end_quote
 
-With sufficient practice, this sequence of moves will make it into your muscle memory. But I find in order to be able to do this at all, I have to be able to remember the whole thing, and saying "are you are-prime you-prime," etc., doesn't stick at all. Also, algorithm amnesia is a thing, often upon switching to a new cube.
+With sufficient practice, this sequence of moves will make it into your muscle memory. But I find in order to be able to do this at all, I have to be able to remember the whole thing, and saying "are you are-prime you-prime," etc., doesn't stick at all.[fn::Also, algorithm amnesia is a thing, often upon switching to a new cube.]
 
 This morning a solution finally occurred to me. It's a bit silly, as mnemonics often are, but I believe (with possibly some tweaking) it works beautifully.
 
 The idea is to write R → S, U → E, R' → X, U' → Y. This has two advantages.
 
 1. The sequence R U R' U' is historically called the /[[https://www.speedsolving.com/wiki/index.php?title=Sexy_Move][sexy move]]/. It appears frequently enough that you can just say /F sexy sexy sexy F'/ and cubers will know what you mean. It consists of four moves, and its name four letters.
-2. Last-layer algorithms tend to consist of long sequences of {R, U} broken up by occasional other faces. By construction, these have to alternate between R and U. Therefore, /assigning consonant sounds to one and vowel sounds to the other creates pronounceable phrases./ What I've actually started doing is pronouncing X as K and Y as I when it makes the phrase easy to remember.
+2. Last-layer algorithms tend to consist of long sequences of {R, U} broken up by occasional other faces. By construction, these have to alternate between R and U. Therefore, /assigning consonant sounds to one and vowel sounds to the other creates pronounceable phrases./ What I've actually started doing is pronouncing X as K or G and Y as I when it makes the phrase easy to remember.
 3. It happens to make tongue-twisters, which is fun.
 
-So the algorithm from before becomes: /(R2 F) SESYX (F') SEEXEES/, which I pronounce "Artoo, sea psych, seeks zees." (Space robot is a mariner-psychiatrist and trying to sleep.) The /(R2 F)/ acts as a "trigger" sequence to signal this particular algorithm, and in particular to distinguish it from its mirror image, which uses a different algorithm. The F and F' act sort of like commas, breaking up the words. These moves tend to be part of [[https://www.speedsolving.com/wiki/index.php?title=Conjugate][conjugations]], so that takes care of remembering which way they go.
+So the algorithm from before becomes: /(R2 F) SESYX (F') SEEXEES/, which I pronounce "Artoo, sea psych, seeks zees."[fn::Space robot is a mariner-psychiatrist and trying to sleep.] The /(R2 F)/ acts as a "trigger" sequence to signal this particular algorithm, and in particular to distinguish it from its mirror image, which uses a different algorithm. The F and F' act sort of like commas, breaking up the words. These moves tend to be part of [[https://www.speedsolving.com/wiki/index.php?title=Conjugate][conjugations]], so that takes care of remembering which way they go.
 
 Other examples:
 

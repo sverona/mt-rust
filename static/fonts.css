@@ -1,0 +1,13 @@
+@font-face {
+	font-family: Castoro;
+	font-style: normal;
+	font-weight: normal;
+	src: url('./Castoro-Regular.woff2');
+}
+
+@font-face {
+	font-family: Castoro;
+	font-style: italic;
+	font-weight: normal;
+	src: url('./Castoro-Italic.woff2');
+}

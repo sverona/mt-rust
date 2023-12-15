@@ -1,0 +1,107 @@
+<!doctype html>
+<style type="text/css">
+@font-face {
+    font-family: 'ibm_xga_ai';
+    src: url('WebPlus_IBM_XGA-AI_12x20.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+	background-color: black;
+	color: #0f0;
+	font-family: 'ibm_xga_ai', monospace;
+	font-size: 20px;
+}
+
+body {
+	max-width: 79ch;
+	padding: 2ch;
+	margin: auto;
+
+	margin-top: 2lh;
+}
+
+span.hl {
+	color: #f0f;
+}
+
+span.center {
+	display: block;
+	text-align: center;
+}
+
+span.right {
+	display: block;
+	text-align: right;
+}
+
+span.space {
+	letter-spacing: 1ch;
+}
+
+span.space.odd {
+	margin-left: 1ch;
+}
+
+p:first-child {
+	margin-block-start: 0;
+}
+
+p:last-child {
+	margin-block-end: 0;
+}
+
+ul {
+	margin: 0;
+	padding-inline-start: 3ch;
+	list-style: '=> ';
+}
+
+a {
+	color: #0ff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f0f;
+}
+
+footer {
+	margin-top: 13lh;
+	color: transparent;
+}
+
+.cursor:before { content: "."; background: green; color: green; }
+.blink .cursor:before { content: ""; }
+
+</style>
+
+<main>
+	<p>[mt:~]$ <span data-pause-secs="1" data-bps="100">./5k1n5u1t</span></p>
+	<p data-pause-secs="1" data-bps="300">
+		Welcome to <span class="hl">Skinsuit Systems</span>!
+	</p>
+
+	<p>
+		You stand in the antechamber of one <span class="hl center space odd">MEATLESS TRAINER,</span> <span class="right">a villainously queer vegan, triathlete, and compudork.</span>
+	</p>
+
+	<ul data-bps="600">
+		<li>Read her <a href="blog/">impassioned monologues about her special interests</a></li>
+		<li>View her <a href="projects/">portfolio of free software</a></li>
+		<li>Follow her down <a href="friends/">a maze of interlocked rings and corridors, all alike</a></li>
+		<li>Stop indulging her and return to her <a href="https://sverona.dev/">boring professional site</a></li>
+	</ul>
+
+</main>
+
+<footer>
+	Hail the Singularity! Hail the Basilisk! I&auml;! I&auml;! &gt;:)
+</footer>
+
+<script src="./modemizr.js"></script>
+<script>modemizr(document.querySelector("main"),document.querySelector("main"),{
+    cursor: true,
+    blink: true,
+});</script>

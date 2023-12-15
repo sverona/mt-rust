@@ -1,17 +1,7 @@
-#+TITLE: Index
+#+TITLE: living in Lycra
 
-** Servus!
+👋 /Servus!/
 
-I'm a big dork who wrote this thing in /org-mode/ and then compiled it to a static site with a custom Rust thing I derived from someone else.
+I'm a rather butch trans girl who likes solving puzzles, doing math, writing code, swimming, cycling, running, and lifting weights. You could say I'm like, a level 10 nerd and a level 3 jock.
 
-*This is some bold text.*
-
-This text has a footnote.[fn::Here it is! *Here's bold footnote!*]
-
-#+begin_src python :results output
-def gcd(a, b):
-	print(a, b)
-	return a if b == 0 else gcd(b, a % b)
-
-print(gcd(833, 42))
-#+end_src
+This site is written in [org-mode]() and built with [a custom SSG I wrote in Rust.]
