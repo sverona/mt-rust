@@ -1,6 +1,8 @@
 @import "fonts.css";
 @import "sidenotes.css";
 
+@import url("https://rsms.me/inter/inter.css");
+
 html {
 	background-color: #212121;
 	color: white;
@@ -10,12 +12,10 @@ html {
 }
 
 h1, h2, h3 {
-    font-style: italic;
-    font-weight: normal;
+	font-weight: normal;
 }
 
 h1 {
-	line-height: 0.8;
 	text-shadow: 2px 2px #555;
 }
 
@@ -33,11 +33,10 @@ article header span {
 article, body > header {
 	margin-left: 10%;
 	width: 100%;
-	max-width: 60ch;
+	max-width: 79ch;
 }
 
 article {
-	margin-top: 2lh;
 }
 
 a {

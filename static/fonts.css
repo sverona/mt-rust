@@ -11,3 +11,10 @@
 	font-weight: normal;
 	src: url('./Castoro-Italic.woff2');
 }
+
+@font-face {
+	font-family: Zarathustra;
+	font-style: normal;
+	font-weight: normal;
+	src: url('./zarathustra-v01.otf');
+}
